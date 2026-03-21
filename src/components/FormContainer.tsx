@@ -34,7 +34,7 @@ export const FormContainer: React.FC = () => {
 
   // 🔹 ENVÍO AL BACKEND
   const sendData = useCallback(async (data: FormData) => {
-    const expectedKeys = [
+    const expectedKeys = [ // Modificar a las nuevas preguntas, estos son los campos que se envian al appscript
       "nombre-empresa",
       "control-ventas",
       "metodo-ventas",
@@ -61,7 +61,7 @@ export const FormContainer: React.FC = () => {
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbwGRCry2R3ce9FGOLEgRWzwTTRgp22lxMYmx_f6fKsb70yTjwteBj7s0lZPSdwpZrhX/exec",
+        "https://script.google.com/", // Link appscript
         {
           method: "POST",
           mode: "no-cors",
