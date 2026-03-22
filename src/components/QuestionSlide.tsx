@@ -97,21 +97,40 @@ export const QuestionSlide: React.FC<QuestionSlideProps> = React.memo(({
       style={containerStyles}
     >
       <div className="max-w-6xl w-full flex flex-col items-center mx-auto">
-        <motion.p 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-purple-main font-bold tracking-widest uppercase mb-2 text-sm md:text-base"
-          style={{ 
-            color: 'var(--purple-main)', 
-            fontWeight: 'bold', 
-            letterSpacing: '0.2em', 
-            marginBottom: question.id === 'nombre-empresa' ? '1.5rem' : '0.5rem', 
-            fontSize: isMobile ? (question.id === 'nombre-empresa' ? '1rem' : '0.875rem') : (question.id === 'nombre-empresa' ? '1.25rem' : '1.125rem') 
-          }}
-        >
-          {question.id === 'nombre-empresa' ? 'BIENVENIDO' : question.id.replace(/-/g, ' ')}
-        </motion.p>
+        {!question.description && (
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-purple-main font-bold tracking-widest uppercase mb-2 text-sm md:text-base"
+            style={{ 
+              color: 'var(--purple-main)', 
+              fontWeight: 'bold', 
+              letterSpacing: '0.2em', 
+              marginBottom: question.id === 'nombre-empresa' ? '1.5rem' : '0.5rem', 
+              fontSize: isMobile ? (question.id === 'nombre-empresa' ? '1rem' : '0.875rem') : (question.id === 'nombre-empresa' ? '1.25rem' : '1.125rem') 
+            }}
+          >
+            {question.id === 'nombre-empresa' ? 'BIENVENIDO' : question.id.replace(/-/g, ' ')}
+          </motion.p>
+        )}
+        
+        {question.description && (
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25 }}
+            className="text-purple-main font-bold tracking-widest uppercase mb-4"
+            style={{ 
+              color: 'var(--purple-main)', 
+              fontWeight: 700, 
+              fontSize: isMobile ? '0.875rem' : '1.125rem',
+              letterSpacing: '0.1em'
+            }}
+          >
+            {question.description}
+          </motion.p>
+        )}
         
         <motion.h2 
           initial={{ opacity: 0 }}
@@ -130,18 +149,6 @@ export const QuestionSlide: React.FC<QuestionSlideProps> = React.memo(({
         >
           {question.question}
         </motion.h2>
-
-        {question.description && (
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-text-secondary mb-8 text-lg md:text-xl"
-            style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: isMobile ? '1.125rem' : '1.5rem' }}
-          >
-            {question.description}
-          </motion.p>
-        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
