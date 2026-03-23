@@ -48,7 +48,8 @@ export const FormContainer: React.FC = () => {
       "clientes-datos",
       "tecnologia-oportunidades",
       "interes-automatizacion",
-      "whatsapp"
+      "whatsapp",
+      "website"
     ];
 
     // Construir payload en orden exacto
@@ -60,8 +61,14 @@ export const FormContainer: React.FC = () => {
     //console.log("📤 Enviando payload:", payload);
 
     try {
+      const scriptUrl = import.meta.env.VITE_APP_SCRIPT_URL;
+      if (!scriptUrl) {
+         console.warn("⚠️ ERROR: VITE_APP_SCRIPT_URL no está definido en el archivo .env");
+         return;
+      }
+
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxKT6YNVi3uaPWY6b6hZiyo4ZE0IaVyRinnBPSH1Jwm-b0xK88h90q9PtTk_apNliQ/exec", // Link appscript
+        scriptUrl,
         {
           method: "POST",
           mode: "no-cors",
@@ -338,6 +345,18 @@ export const FormContainer: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* 🍯 HONEYPOT (Campo trampa para bots) */}
+        <div style={{ position: 'absolute', opacity: 0, zIndex: -1, pointerEvents: 'none' }}>
+           <input 
+             type="text" 
+             name="website" 
+             tabIndex={-1} 
+             autoComplete="off" 
+             value={formData['website'] || ''}
+             onChange={(e) => handleAnswer('website', e.target.value)}
+           />
+        </div>
       </main>
 
       {/* Floating WhatsApp Button outside main to ensure global position */}
