@@ -263,7 +263,9 @@ export const FormContainer: React.FC = () => {
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 textAlign: 'center',
-                paddingTop: isMobile ? '38vh' : '55vh'
+                paddingTop: isMobile ? '38vh' : '55vh',
+                paddingLeft: isMobile ? '2rem' : '1rem',
+                paddingRight: isMobile ? '2rem' : '1rem'
               }}
             >
               {error ? (
@@ -295,13 +297,10 @@ export const FormContainer: React.FC = () => {
                     {level === 'ALTO' && (
                       <>
                         <p className="text-base md:text-xl text-white/90" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                          Detectamos varias oportunidades importantes de mejora en tu empresa.
-                        </p>
-                        <p className="text-base md:text-xl text-white/90" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                           Es muy probable que estés perdiendo tiempo, dinero o ventas por procesos manuales o falta de control.
                         </p>
                         <p className="text-base md:text-xl text-white/90" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                          Nuestro equipo te enviará un diagnóstico detallado con soluciones específicas para optimizar tu operación.
+                          Agenda una breve llamada por WhatsApp con nuestro equipo para presentarte el plan de acción ideal para tu negocio.
                         </p>
                       </>
                     )}
@@ -312,9 +311,6 @@ export const FormContainer: React.FC = () => {
                         </p>
                         <p className="text-base md:text-xl text-white/90" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                           Con automatización y mejores procesos podrías mejorar tu eficiencia y aumentar tus resultados.
-                        </p>
-                        <p className="text-base md:text-xl text-white/90" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                          Te enviaremos recomendaciones personalizadas para llevar tu negocio al siguiente nivel.
                         </p>
                       </>
                     )}
@@ -333,7 +329,7 @@ export const FormContainer: React.FC = () => {
                     )}
 
                     <p className="text-lg md:text-2xl font-bold bg-gradient-to-r from-purple-main to-orange-main bg-clip-text text-transparent mt-8" style={{ marginTop: '2rem', backgroundImage: 'linear-gradient(to right, var(--purple-main), var(--orange-main))', WebkitBackgroundClip: 'text', color: 'transparent', fontWeight: 700 }}>
-                      En las próximas horas recibirás tu diagnóstico gratuito por WhatsApp.
+                      ¡Agendemos una cita por WhatsApp para presentarte recomendaciones personalizadas!
                     </p>
                   </div>
                 </>

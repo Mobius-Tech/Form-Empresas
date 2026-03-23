@@ -77,7 +77,7 @@ export const QuestionSlide: React.FC<QuestionSlideProps> = React.memo(({
     justifyContent: question.id === 'nombre-empresa' ? 'flex-start' : 'center' as const,
     height: '100vh',
     width: '100vw',
-    padding: question.id === 'nombre-empresa' ? '45vh 2rem 0' : (isMobile ? '10rem 2rem 0' : '5rem 2rem 0'),
+    padding: question.id === 'nombre-empresa' ? '45vh 2rem 0' : (isMobile ? '7rem 2rem 0' : '5rem 2rem 0'),
     textAlign: 'center' as const,
     willChange: 'transform, opacity'
   }), [question.id]);
@@ -125,7 +125,8 @@ export const QuestionSlide: React.FC<QuestionSlideProps> = React.memo(({
               color: 'var(--purple-main)', 
               fontWeight: 700, 
               fontSize: isMobile ? '0.875rem' : '1.125rem',
-              letterSpacing: '0.1em'
+              letterSpacing: '0.1em',
+              marginBottom: isMobile ? '8px' : '12px'
             }}
           >
             {question.description}
@@ -231,12 +232,7 @@ export const QuestionSlide: React.FC<QuestionSlideProps> = React.memo(({
                       Continuar
                       <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-                    <p 
-                       className="text-[9px] text-zinc-600 font-medium uppercase tracking-[0.3em] mt-8 italic"
-                       style={{ fontFamily: 'monospace', opacity: 0.8 }}
-                    >
-                       Presiona <span className="text-zinc-400 font-bold not-italic font-sans">ENTER</span> para continuar
-                    </p>
+
                   </motion.div>
                 )}
               </AnimatePresence>
