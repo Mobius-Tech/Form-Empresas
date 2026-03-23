@@ -4,6 +4,7 @@ import { QUESTIONS } from '../constants';
 import { QuestionSlide } from './QuestionSlide';
 import { Background } from './Background';
 import type { FormData } from '../types';
+import { WhatsAppButton } from './WhatsAppButton';
 import confetti from 'canvas-confetti';
 import logo from '../assets/MobiusTechLogo.png';
 
@@ -56,7 +57,7 @@ export const FormContainer: React.FC = () => {
       payload[key] = data[key] ?? "";
     });
 
-    console.log("📤 Enviando payload:", payload);
+    //console.log("📤 Enviando payload:", payload);
 
     try {
       await fetch(
@@ -72,7 +73,7 @@ export const FormContainer: React.FC = () => {
       );
 
       // Con no-cors no podemos leer la respuesta, pero el envío se realiza
-      console.log("📥 Envío finalizado (modo no-cors)");
+      //console.log("📥 Envío finalizado (modo no-cors)");
     } catch (error) {
       console.error("❌ Error enviando datos:", error);
       throw error;
@@ -338,6 +339,9 @@ export const FormContainer: React.FC = () => {
           )}
         </AnimatePresence>
       </main>
+
+      {/* Floating WhatsApp Button outside main to ensure global position */}
+      {isSubmitted && <WhatsAppButton />}
     </div>
   );
 };
