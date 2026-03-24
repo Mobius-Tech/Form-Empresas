@@ -308,7 +308,7 @@ export const FormContainer: React.FC = () => {
                           Es muy probable que estés perdiendo tiempo, dinero o ventas por procesos manuales o falta de control.
                         </p>
                         <p className="text-base md:text-xl text-white/90" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                          Agenda una breve llamada por WhatsApp con nuestro equipo para presentarte el plan de acción ideal para tu negocio.
+                          Agenda una breve cita por WhatsApp con nuestro equipo para presentarte el plan de acción ideal para tu negocio.
                         </p>
                       </>
                     )}
